@@ -1,4 +1,4 @@
-### Honest-Debian: Hardened OS for Truth Machines
+# Honest-Debian: Hardened OS for Truth Machines
 
 This is a **fork of pi-gen**, the official Raspberry Pi OS (Raspbian)-based image building tool. Our fork creates a **hardened Raspberry Pi OS distribution** specifically designed for the **Truth Machines** project.
 
