@@ -46,7 +46,7 @@ For non-Debian distros, Docker builds are available (see below).
 Clone the **Truth Machines fork**:
 
 ```bash
-git clone https://github.com/YourOrg/pi-gen-truth-machines.git
+git clone https://github.com/VeracityLabs/honest-debian.git
 ```
 
 > Avoid cloning into a directory with spaces in the path, as this breaks `debootstrap`.
