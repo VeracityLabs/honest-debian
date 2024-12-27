@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # shellcheck disable=SC2119
-run_sub_stage()
+run_sub_stage() 
 {
 	log "Begin ${SUB_STAGE_DIR}"
 	pushd "${SUB_STAGE_DIR}" > /dev/null
@@ -137,6 +137,7 @@ term() {
 	fi
 }
 
+#checks root privileges
 if [ "$(id -u)" != "0" ]; then
 	echo "Please run as root" 1>&2
 	exit 1
@@ -144,6 +145,7 @@ fi
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+#check if there is a space in the base path of pi-gen
 if [[ $BASE_DIR = *" "* ]]; then
 	echo "There is a space in the base path of pi-gen"
 	echo "This is not a valid setup supported by debootstrap."
@@ -153,6 +155,7 @@ fi
 
 export BASE_DIR
 
+#check if there is a config file
 if [ -f config ]; then
 	# shellcheck disable=SC1091
 	source config
@@ -177,7 +180,7 @@ export PI_GEN_RELEASE=${PI_GEN_RELEASE:-Raspberry Pi reference}
 
 export ARCH=arm64
 export RELEASE=${RELEASE:-bookworm} # Don't forget to update stage0/prerun.sh
-export IMG_NAME="${IMG_NAME:-raspios-$RELEASE-$ARCH}"
+export IMG_NAME="${IMG_NAME:-hondeb2-$RELEASE-$ARCH}"
 
 export USE_QEMU="${USE_QEMU:-0}"
 export IMG_DATE="${IMG_DATE:-"$(date +%Y-%m-%d)"}"
@@ -206,7 +209,7 @@ export FIRST_USER_NAME=${FIRST_USER_NAME:-pi}
 export FIRST_USER_PASS
 export DISABLE_FIRST_BOOT_USER_RENAME=${DISABLE_FIRST_BOOT_USER_RENAME:-0}
 export WPA_COUNTRY
-export ENABLE_SSH="${ENABLE_SSH:-0}"
+export ENABLE_SSH="${ENABLE_SSH:-1}"
 export PUBKEY_ONLY_SSH="${PUBKEY_ONLY_SSH:-0}"
 
 export LOCALE_DEFAULT="${LOCALE_DEFAULT:-en_GB.UTF-8}"
