@@ -3,7 +3,7 @@
 # Run the first script
 # You need to run this as sudo.
 echo "Generating stock raspbian .img with pi-gen"
-bash build.sh
+./build-docker.sh
 if [ $? -ne 0 ]; then
     echo "Error: building pi-gen failed to execute."
     exit 1
@@ -21,7 +21,7 @@ fi
 # Run the second script
 echo "Adding the pioreactor files to the .img file"
 cd CustoPiZer
-sudo bash make_worker_image.sh 1.1
+./make_worker_image.sh 1.1
 if [ $? -ne 0 ]; then
     echo "Error: adding pioreactor files failed to execute."
     exit 1
