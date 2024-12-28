@@ -12,7 +12,7 @@ fi
 # Run the second script
 echo "Moving the .img file to custopizer workspace, then renaming to input.img"
 pwd
-sudo mv ./work/raspios-/export-image/pio_image.img. ./CustoPiZer/workspace
+sudo mv ./work/pio_image/export-image/pio_image-full.img ./CustoPiZer/workspace/input.img
 if [ $? -ne 0 ]; then
     echo "Error: moving the .img file failed."
     exit 1
