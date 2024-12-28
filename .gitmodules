@@ -1,0 +1,3 @@
+[submodule "CustoPiZer"]
+	path = CustoPiZer
+	url = git@github.com:Pioreactor/CustoPiZer.git

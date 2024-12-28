@@ -1,0 +1,11 @@
+[Unit]
+Description=Writes the ip to /boot/firmware/ip
+Wants=network-online.target
+After=network-online.target NetworkManager.service
+
+[Service]
+ExecStart=/bin/bash /usr/local/bin/write_ip.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
